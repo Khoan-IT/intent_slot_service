@@ -1,0 +1,17 @@
+checkpoint:
+  checkpoint_dir: './model/checkpoint'
+
+data:
+  data_dir: './model/intent_slot_labels'
+  intent_label_name: 'intent_label.txt'
+  slot_label_name: 'slot_label.txt'
+
+tokenizer:
+  cls_token_segment_id: 0
+  pad_token_segment_id: 0
+  sequence_a_segment_id: 0
+  mask_padding_with_zero: True
+
+device:
+  cuda: False
+  
