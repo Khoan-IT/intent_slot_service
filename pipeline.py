@@ -173,8 +173,10 @@ class IntentSlotModel:
         for i, (word, pred_slot) in enumerate(zip(words, slot_preds_list)):
             if current_slot != pred_slot:
                 if current_slot != 'O':
-                    name_slot = current_slot.split('-')[-1]
-                    slots[name_slot] = value_slot.strip()
+                    if current_slot not in slots:
+                        slots[current_slot] = value_slot.strip()
+                    else:
+                        slots[current_slot] = slots[current_slot] + ', ' + value_slot.strip()
                     value_slot = ''
                 current_slot = pred_slot
                     
@@ -182,8 +184,10 @@ class IntentSlotModel:
                 value_slot = value_slot + ' ' + word
             
             if i == len_sentence - 1 and current_slot != 'O':
-                name_slot = current_slot.split('-')[-1]
-                slots[name_slot] = value_slot.strip()
+                if current_slot not in slots:
+                    slots[current_slot] = value_slot.strip()
+                else:
+                    slots[current_slot] = slots[current_slot] + ', ' + value_slot.strip()
                 value_slot = ''
 
         result = {

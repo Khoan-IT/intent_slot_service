@@ -6,3 +6,4 @@ PyYAML==6.0
 torch==1.13.1
 pytorch-crf
 transformers==4.26.1
+underthesea
