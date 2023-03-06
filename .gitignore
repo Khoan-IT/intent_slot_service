@@ -1,5 +1,6 @@
 #local
 model/checkpoint/
+model/intent_slot_labels
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
